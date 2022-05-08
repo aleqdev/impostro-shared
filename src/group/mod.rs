@@ -1,19 +1,25 @@
 use serde::{Deserialize, Serialize};
 
-use super::{player::Player, resources::Resources};
+pub mod members;
+pub mod name;
+
+pub use members::*;
+pub use name::*;
+
+use crate::resources::Resources;
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Deserialize, Serialize)]
 pub struct Group {
-    pub name: String,
-    pub members: Vec<Player>,
+    pub name: GroupName,
+    pub members: GroupMembers,
     pub resources: Resources,
 }
 
 impl Group {
     pub fn new(name: String) -> Self {
         Self {
-            name,
-            members: vec![],
+            name: GroupName(name),
+            members: Default::default(),
             resources: Resources::default(),
         }
     }

@@ -1,18 +1,25 @@
-use rand::{self, Rng};
+use std::ops::{Deref, DerefMut};
+
+use rand::Rng;
 use serde::{Deserialize, Serialize};
 
-use super::group::Group;
-
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Default, Deserialize, Serialize)]
-pub struct SessionCounter(usize);
+use super::SessionCounter;
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Deserialize, Serialize)]
 pub struct SessionId(pub [char; 6]);
 
-#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Deserialize, Serialize)]
-pub struct Session {
-    pub id: SessionId,
-    pub groups: Vec<Group>,
+impl Deref for SessionId {
+    type Target = [char; 6];
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl DerefMut for SessionId {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.0
+    }
 }
 
 impl SessionId {
@@ -27,3 +34,4 @@ impl SessionId {
         Self(val)
     }
 }
+
