@@ -4,16 +4,16 @@ use crate::{session::SessionId, group::GroupName};
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Deserialize, Serialize)]
 pub struct GetSessions {
-    pass: String,
+    pub pass: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Deserialize, Serialize)]
 pub struct GetGroups {
-    session: SessionId
+    pub session: SessionId
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Deserialize, Serialize)]
 pub struct GetMembers {
-    session: SessionId,
-    group_name: GroupName
+    pub session: SessionId,
+    pub group_name: GroupName
 }
