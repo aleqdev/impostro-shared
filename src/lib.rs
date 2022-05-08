@@ -7,6 +7,7 @@ pub mod player;
 pub mod resources;
 pub mod role;
 pub mod session;
+pub mod api;
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Default, Deserialize, Serialize)]
 pub struct ImpostroData {
