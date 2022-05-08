@@ -8,6 +8,3 @@ edition = "2021"
 [dependencies]
 serde = { version = "*", features = ["derive"] }
 rand = "*"
-
-[rand.dependencies]
-getrandom = {version = "*", features = ["js"]}
