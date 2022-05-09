@@ -22,3 +22,9 @@ pub struct GetMembers {
 pub struct ValidateSessionId {
     pub session: SessionId,
 }
+
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Deserialize, Serialize)]
+pub struct CreateSession {
+    pub pass: String,
+}
