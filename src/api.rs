@@ -17,3 +17,8 @@ pub struct GetMembers {
     pub session: SessionId,
     pub group_name: GroupName
 }
+
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Deserialize, Serialize)]
+pub struct ValidateSessionId {
+    pub session: SessionId,
+}
